@@ -5,7 +5,7 @@ var pswrdReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
 exports.register = function(req, res, next){
     var err = [];
     console.log(req.body);
-    if(!req.body.username) err.push({msg: 'username is required'});
+    if(!req.body.username) err.push({msg:'username is required'});
 
     if(!req.body.email || !emailReg.test(req.body.email)) err.push({msg: 'enter a valid email'});
     

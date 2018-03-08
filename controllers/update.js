@@ -35,7 +35,7 @@ exports.updation = function(req, res, ){
                     res.statusCode = 400;
                     res.send({
                         "error": "bad_request",
-                        "error_description": "Old password is wrong"                      
+                        "error_description": "username is wrong"                      
                     });
                 }
             };

@@ -23,7 +23,7 @@ exports.forgot_pswrd = function(req, res){
                 });            
             }else if(result.affectedRows){
                 // send email
-                var url = "/reset-password?token="+token;
+                var url = "view/reset.ejs?token="+token;
                 var message = "To reset your password, click the link here. "
                 +url;
             }else{
@@ -40,10 +40,3 @@ exports.forgot_pswrd = function(req, res){
     }
    
 }
-
-// exports.reset_pswrd = function(req, res){
-//     var password = req.body.password;
-//     var confirm = req.body.confirm;
-// }
-
-// update users set password=? where reset_password_token=?

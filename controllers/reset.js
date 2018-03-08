@@ -14,6 +14,11 @@ exports.reset_pswrd = function(req, res){
                     "error_description": "error"
                 });       
         }else{
+            res.json({
+                code :200,
+                data :result,
+                message : "successfully logged in"
+            });
 
 
         }
