@@ -2,7 +2,7 @@ var con = require('./../model');
 
 var emailReg = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var pswrdReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
-exports.register = function(req, res){
+exports.register = function(req, res, next){
     var err = [];
     console.log(req.body);
     if(!req.body.username) err.push({msg: 'username is required'});

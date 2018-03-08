@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+
+   
+    <style>
+      body{ background-color: aquamarine;text-align: center}
+      h1{font-size: 50px; font-family: 'verdana'; color: blue; text-align: center}
+      p{ font-size: 20px; font-family: 'fantasy'; color: blueviolet; text-align: center}
+    </style>
+
+</head>
+
+<body>
+
+    <h1>RESET PASSWORD</h1>
+
+    <form id = "reset-pswrd" method="POST" action="/reset">
+
+        <div>
+            <label for="email"> Email: </label>
+            <input id="email" type="text" name="email">    
+        </div><br>
+
+        <input type="submit" id="btnSubmit" value="send">
+
+    </form>
+</body>

@@ -6,6 +6,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var forms = require('./controllers/forms');
 var login = require('./controllers/login');
+var update = require('./controllers/update');
+var change = require('./controllers/change');
+var forgot = require('/controllers/forgot');
 
 var app = express();
 
@@ -22,7 +25,7 @@ app.get('/', function(req, res){
 
 app.post('/index',urlencodedParser, forms.register);
 
-// api fo login user
+// api for login user
 
 app.post('/login', login.login);
 
@@ -35,6 +38,14 @@ app.get('/users/:id', function(req, res){
     });
 });
 
+//update the user profile
+app.put('/id', update.updation);
+
+//change password
+app.post('/change/pswrd', change.change);
+
+//forgot password
+// app.post('');
 
 app.listen(3000);
 
