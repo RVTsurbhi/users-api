@@ -1,13 +1,22 @@
 var con = require('./../model');
-var errors = require('./errors');
-var session = require('express-session');
 var random_key = require('./functions');
 
 exports.login = function (req, res){
+
+    // var body = {
+    //     email:{
+    //         value: req.body.email,
+    //         required :1
+    //     },
+
+    //     password:{
+    //         value: req.body.password || null,
+    //         require: 1
+    //     }
+    // }
     var email = req.body.email;
     var password = req.body.password;
     
-
     if(!email){
         res.statusCode = 400;
         res.send({
@@ -19,7 +28,11 @@ exports.login = function (req, res){
         con.query('select * from users where email_id = ?', [email], 
         function(err, result, fields){
             if(err){
-                res.send(errors.errors);
+                res.statusCode = 500;
+                res.send({
+                    "error": "internal_server_error",
+                    "error_description": "error"
+                });
             }else{
                 console.log(result);
                 if(result.length > 0){

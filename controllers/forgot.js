@@ -14,7 +14,7 @@ exports.forgot_pswrd = function(req, res){
     }else{
         var token = "fdsafdf43254";
         con.query('update users set reset_password_token=? where email_id=?', [token , email], function(err, result){
-            if(err){ //err due to wrong query
+            if(err){ 
                 console.log(err);
                 res.statusCode = 500;
                 res.send({
@@ -23,7 +23,7 @@ exports.forgot_pswrd = function(req, res){
                 });            
             }else if(result.affectedRows){
                 // send email
-                var url = "view/reset.ejs?token="+token;
+                var url = "http://localhost:3000/view/password.ejs?token="+token;
                 var message = "To reset your password, click the link here. "
                 +url;
             }else{
